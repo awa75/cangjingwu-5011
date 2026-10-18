@@ -1,0 +1,46 @@
+[Unit]
+Description=藏经坞 后端服务（ZSR·DCM 协议养护计划）
+Documentation=file://@CODE_DIR@/docs/05-部署与联调.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=cangjingwu
+Group=cangjingwu
+WorkingDirectory=@CODE_DIR@/apps/server
+
+# 配置：不直接写 EnvironmentFile，而是交给 dotenv 读取，
+# 这样可以继续用 # 注释、中文值与行内说明，不受 systemd 解析规则限制。
+Environment=NODE_ENV=production
+Environment=ENV_FILE=@ENV_FILE@
+
+# 只监听回环，由 Nginx 反代；如需局域网直连改成 0.0.0.0 并在安全组放行
+# @NODE_BIN@ 由 install.sh 探测真实 node 路径后替换（避免 nvm 装的 node 导致 203/EXEC）
+ExecStart=@NODE_BIN@ --disable-warning=ExperimentalWarning --import tsx src/index.ts
+
+Restart=always
+RestartSec=3
+TimeoutStopSec=20
+KillSignal=SIGTERM
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=cangjingwu
+
+# ---------------- 安全加固 ----------------
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+# 只允许写数据目录（代码目录只读）
+ReadWritePaths=/var/lib/cangjingwu
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="paper">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="藏经坞：ZSR·DCM 协议养护计划（2026–2030）" />
+    <title>藏经坞</title>
+    <script>
+      /* 首屏前定主题，避免亮/暗闪一下（与 src/hooks/useTheme.tsx 保持一致） */
+      (function () {
+        try {
+          var saved = localStorage.getItem('cjw:theme');
+          var ok = saved === 'paper' || saved === 'ink' || saved === 'seal';
+          var prefersDark =
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = ok ? saved : prefersDark ? 'ink' : 'paper';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'paper';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

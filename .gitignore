@@ -1,0 +1,51 @@
+# 依赖与构建产物
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# 运行期数据（绝不入库）
+apps/server/data/
+apps/server/storage/
+data/
+storage/
+*.db
+*.db-wal
+*.db-shm
+
+# 环境变量与密钥
+.env
+.env.local
+*.env
+!.env.example
+
+# 日志与临时文件
+*.log
+logs/
+worker/worker.log
+tmp/
+
+# 风格库抓取缓存（scripts/fetch-design-styles.mjs）
+.cache/
+
+# 打包产物与本地验证目录
+dist-linux/
+.verify/
+
+# 分析机本地配置
+worker/config.toml
+
+# Python（分析机）
+__pycache__/
+*.py[cod]
+worker/.venv/
+
+# 编辑器与系统
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+# 浏览器验收产物与本地截图（含明文调试口令，绝不入库）
+_render/

@@ -1,0 +1,136 @@
+/* ==========================================================================
+   语义 Token —— 本站主题（宣纸 / 墨夜）
+   依据 docs/02-视觉与主题.md；组件只允许使用这里的变量，不得硬编码颜色。
+   换主题 = 换一组变量，<html data-theme="..."> 一改即生效。
+   风格库那几十套主题在 styles-gallery.css 里（自动生成），用的是同一批变量名。
+   ========================================================================== */
+
+:root {
+  /* ---------- 字体 ---------- */
+  --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif;
+  --font-sans: system-ui, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+
+  /* ---------- 字阶（移动端在 media query 里降一级） ---------- */
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-20: 20px;
+  --fs-26: 26px;
+  --fs-34: 34px;
+  --fs-44: 44px;
+
+  /* ---------- 行高与字距 ---------- */
+  --leading: 1.85;
+  --leading-tight: 1.35;
+  --tracking-title: 0.04em;
+  --tracking-body: 0.01em;
+
+  /* ---------- 间距 ---------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 72px;
+
+  /* ---------- 版面 ---------- */
+  --page-max: 1180px;
+  --reading-max: 760px;
+  --nav-h: 62px;
+
+  /* ---------- 玻璃/模糊（风格库主题会覆盖它） ---------- */
+  --card-backdrop: none;
+
+  /* ---------- 动效 ---------- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ============================== 宣纸（亮） ============================== */
+:root[data-theme='paper'] {
+  --bg: #f2ede2;
+  --bg-elev: #faf7f0;
+  --surface: rgba(255, 255, 255, 0.62);
+  --border: #d8cebb;
+  --border-strong: #b9aa8e;
+  --text: #221e19;
+  --text-dim: #6b6154;
+  --accent: #9e2b25;
+  --accent-hover: #7e211c;
+  --on-accent: #fdf8f2;
+  --seal: #b23a2f;
+  --gold: #a8862f;
+  --ok: #3f6b4a;
+  --warn: #9a6a18;
+  --err: #a8352b;
+  --shadow: 0 2px 14px rgba(60, 48, 30, 0.1);
+  --radius: 2px;
+  --seal-radius: 4px;
+
+  /* 纸纹：极淡竖纹 + 顶部墨色渐晕 */
+  --texture:
+    linear-gradient(180deg, rgba(70, 56, 36, 0.07), transparent 220px),
+    repeating-linear-gradient(
+      90deg,
+      rgba(120, 102, 74, 0.1) 0 1px,
+      transparent 1px 9px
+    );
+  --texture-opacity: 0.5;
+  --title-mark: 3px; /* 标题左侧朱砂细竖线宽度 */
+  --font-doc: var(--font-serif);
+  --doc-indent: 2em;
+}
+
+/* ============================== 墨夜（暗） ============================== */
+:root[data-theme='ink'] {
+  --bg: #14120f;
+  --bg-elev: #1c1916;
+  --surface: rgba(255, 255, 255, 0.04);
+  --border: #2e2a24;
+  --border-strong: #4a4238;
+  --text: #e9e2d5;
+  --text-dim: #9a9083;
+  --accent: #c2534a;
+  --accent-hover: #d9685f;
+  --on-accent: #1a1614;
+  --seal: #c2534a;
+  --gold: #c8a96a;
+  --ok: #6fa97c;
+  --warn: #d3a44c;
+  --err: #d9705f;
+  --shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+  --radius: 2px;
+  --seal-radius: 4px;
+
+  /* 中央极弱径向墨晕 */
+  --texture: radial-gradient(
+    120% 80% at 50% -10%,
+    rgba(233, 226, 213, 0.035),
+    transparent 60%
+  );
+  --texture-opacity: 1;
+  --title-mark: 0px;
+  --font-doc: var(--font-serif);
+  --doc-indent: 2em;
+}
+
+/* 主题切换瞬间的颜色过渡（切换函数里临时加，150ms 后移除） */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition:
+    background-color 150ms linear,
+    border-color 150ms linear,
+    color 150ms linear !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition,
+  .theme-transition * {
+    transition: none !important;
+  }
+}

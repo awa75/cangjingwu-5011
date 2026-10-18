@@ -1,0 +1,317 @@
+/* ==========================================================================
+   文件夹（作品集 / 文库共用）
+
+   形态：**横版长条**（folder band）——一条横贯页面的容器，把夹内文件"圈"在里面：
+     顶部一条横向标题栏（标签舌 + 名称 + 件数 + 一句话摘要）
+     下面是（作品集才有的）卷首说明
+     再下面是全部文件/文稿 —— 直接铺开，不折叠、不用点进去
+   ========================================================================== */
+
+.folder-band,
+.doc-band {
+  position: relative;
+  margin: var(--sp-6) 0;
+  padding: var(--sp-5) var(--sp-5) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow);
+}
+:root[data-dark='true'] .folder-band,
+:root[data-dark='true'] .doc-band {
+  background: color-mix(in srgb, var(--bg-elev) 88%, transparent);
+}
+
+/* 标签舌：贴在长条上沿，像个真的文件夹 */
+.folder-band .folder-tab,
+.doc-band .folder-tab {
+  position: absolute;
+  top: -10px;
+  left: 22px;
+  width: 108px;
+  height: 10px;
+  background: var(--border-strong);
+  border-radius: var(--radius) var(--radius) 0 0;
+  opacity: 0.75;
+}
+.folder-band-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+.folder-band-title {
+  font-size: var(--fs-20);
+  letter-spacing: var(--tracking-title);
+}
+.folder-band-summary {
+  font-size: var(--fs-13);
+}
+.folder-band-open {
+  margin-left: auto;
+  font-size: var(--fs-12);
+  white-space: nowrap;
+}
+
+/* 卷首说明：就在文件上方，直接可见 */
+.folder-band-note {
+  padding: var(--sp-3) 0 0;
+  font-size: var(--fs-14);
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+.folder-band-note > *:last-child {
+  margin-bottom: 0;
+}
+
+.folder-band-body {
+  margin-top: var(--sp-4);
+}
+.doc-band .doc-list {
+  margin-top: var(--sp-4);
+}
+.doc-band-empty {
+  margin: var(--sp-4) 0 0;
+  font-size: var(--fs-13);
+}
+
+/* 未归档区：虚线，提示"还能往里拖" */
+.folder-band.is-unfiled,
+.doc-band.is-unfiled {
+  border-style: dashed;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* ------------------------------ 拖拽反馈（仅管理员） ------------------------------ */
+
+.drag-hint {
+  margin: 0 0 var(--sp-4);
+  font-size: var(--fs-13);
+  color: var(--accent);
+}
+
+.gallery-item[draggable='true'],
+.doc-item[draggable='true'] {
+  cursor: grab;
+}
+.gallery-item[draggable='true'] .gallery-card {
+  cursor: grab;
+}
+.gallery-item[draggable='true']:active,
+.doc-item[draggable='true']:active {
+  cursor: grabbing;
+}
+.gallery-item[data-dragging='true'],
+.doc-item[data-dragging='true'] {
+  opacity: 0.4;
+}
+.gallery-item[data-over='true'] {
+  outline: 2px dashed var(--accent);
+  outline-offset: 4px;
+  border-radius: var(--radius);
+}
+.doc-item[data-over='true'] {
+  outline: 2px dashed var(--accent);
+  outline-offset: 2px;
+}
+.folder-band[data-drop-target='true'],
+.doc-band[data-drop-target='true'] {
+  border-color: var(--accent);
+  border-style: solid;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.folder-band.is-dragging,
+.doc-band.is-dragging {
+  transition: border-color 150ms var(--ease);
+}
+
+/* 拖文件夹本身：整条可抓（只有管理员拿得到 draggable） */
+.folder-band[draggable='true'],
+.doc-band[draggable='true'] {
+  cursor: grab;
+}
+.folder-band[draggable='true']:active,
+.doc-band[draggable='true']:active {
+  cursor: grabbing;
+}
+.folder-band[data-dragging='true'],
+.doc-band[data-dragging='true'] {
+  opacity: 0.4;
+}
+/* 落点：插到目标长条的前面 / 后面（3px 实线，不吃布局） */
+.folder-band[data-folder-over='before'],
+.doc-band[data-folder-over='before'] {
+  box-shadow:
+    0 -3px 0 0 var(--accent),
+    0 0 0 2px color-mix(in srgb, var(--accent) 26%, transparent);
+}
+.folder-band[data-folder-over='after'],
+.doc-band[data-folder-over='after'] {
+  box-shadow:
+    0 3px 0 0 var(--accent),
+    0 0 0 2px color-mix(in srgb, var(--accent) 26%, transparent);
+}
+
+/* ------------------------------ 文库：条目 + 下载小方块 ------------------------------ */
+
+.doc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding-right: var(--sp-3);
+  transition:
+    border-color 160ms var(--ease),
+    transform 160ms var(--ease);
+}
+.doc-item:hover {
+  border-color: var(--accent);
+}
+.doc-item-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--sp-4) var(--sp-5);
+  color: inherit;
+  text-decoration: none;
+}
+.doc-item-main:hover {
+  text-decoration: none;
+}
+.doc-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+.doc-item-head h3 {
+  font-size: var(--fs-20);
+}
+.doc-excerpt {
+  display: block;
+  margin: 0;
+  font-size: var(--fs-13);
+}
+.doc-item-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  font-size: var(--fs-12);
+}
+
+/* 「下载所有文件」小方块：只有绑定了文件的条目才有 */
+.doc-dl {
+  position: relative;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-dim);
+  text-decoration: none;
+  transition:
+    background-color 160ms var(--ease),
+    border-color 160ms var(--ease),
+    color 160ms var(--ease);
+}
+.doc-dl:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  text-decoration: none;
+}
+.doc-dl-glyph {
+  font-size: var(--fs-20);
+  line-height: 1;
+  transform: translateY(-2px);
+}
+.doc-dl-count {
+  position: absolute;
+  right: 3px;
+  bottom: 1px;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+/* ------------------------------ 文件夹详情页（/portfolio/:slug） ------------------------------ */
+.crumbs {
+  margin-top: var(--sp-5);
+  font-size: var(--fs-12);
+  color: var(--text-dim);
+}
+.crumbs a {
+  color: var(--text-dim);
+}
+.crumbs a:hover {
+  color: var(--accent);
+}
+
+.collection-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  margin: var(--sp-3) 0 var(--sp-5);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+.collection-summary {
+  margin: 8px 0 0;
+  font-family: var(--font-serif);
+}
+.collection-updated {
+  font-size: var(--fs-12);
+}
+
+.collection-note {
+  padding: var(--sp-5) var(--sp-6);
+}
+.collection-note-title,
+.collection-files-title {
+  margin-bottom: var(--sp-4);
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+}
+.collection-note-empty {
+  margin: 0;
+}
+.collection-files {
+  margin-top: var(--sp-7);
+}
+
+@media (max-width: 720px) {
+  .folder-band,
+  .doc-band {
+    padding: var(--sp-4) var(--sp-3) var(--sp-3);
+  }
+  .folder-band-open {
+    display: none;
+  }
+  .doc-item-main {
+    padding: var(--sp-3) var(--sp-4);
+  }
+  .doc-dl {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,911 @@
+/* ==========================================================================
+   页面样式：题记区 / 文库 / 阅读页 / 说明页 / 登录 / 分享页 / 正文排版
+   ========================================================================== */
+
+.page {
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-8);
+}
+.page.slim {
+  max-width: var(--reading-max);
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin: var(--sp-6) 0 var(--sp-5);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+.page-sub {
+  margin: 6px 0 0;
+  font-size: var(--fs-13);
+}
+
+/* ------------------------------ 首页题记 ------------------------------ */
+.hero {
+  position: relative;
+  padding: var(--sp-8) 0 var(--sp-7);
+  text-align: center;
+}
+
+.hero-tagline {
+  margin: 0 0 var(--sp-2);
+  font-family: var(--font-serif);
+  font-size: var(--fs-13);
+  letter-spacing: 0.5em;
+  color: var(--accent);
+}
+.hero-title {
+  font-size: var(--fs-44);
+  letter-spacing: 0.08em;
+}
+.hero-sub {
+  margin: var(--sp-2) 0 var(--sp-5);
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  letter-spacing: 0.14em;
+}
+.hero-text {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--text-dim);
+  font-family: var(--font-serif);
+  line-height: var(--leading);
+}
+
+/* 文库条目的样式已移到 design/collections.css（文件夹长条 + 下载小方块一起管） */
+
+/* ------------------------------ 阅读页 ------------------------------ */
+.reader-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  flex-wrap: wrap;
+}
+.reader {
+  padding: var(--sp-6) var(--sp-7);
+}
+.reader-head {
+  padding-bottom: var(--sp-4);
+  margin-bottom: var(--sp-5);
+  border-bottom: 1px solid var(--border);
+}
+.reader-head h1 {
+  font-size: var(--fs-34);
+}
+.reader-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-top: var(--sp-3);
+  font-size: var(--fs-12);
+}
+.reader-foot {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-4);
+  border-top: 1px dashed var(--border);
+  text-align: center;
+  font-size: var(--fs-12);
+}
+
+/* ------------------------------ 说明页（一本书：扉页 + 多章翻页） ------------------------------ */
+.manual-toolbar-wrap {
+  position: relative;
+  margin-bottom: var(--sp-3);
+}
+.manual-toolbar {
+  gap: var(--sp-3);
+}
+.manual-pos {
+  font-size: var(--fs-12);
+  letter-spacing: 0.08em;
+}
+.manual {
+  position: relative;
+  padding: var(--sp-7) var(--sp-8) var(--sp-5);
+}
+
+/* ---------- 翻页视口：两层页面在里面左右滑动 ---------- */
+.manual-viewport {
+  position: relative;
+  overflow: hidden;
+  /* 高度过渡是"长文→短文不跳一下"的关键，时长与 ManualPage 里的 FLIP_MS 一致 */
+  transition: height 420ms cubic-bezier(0.32, 0.72, 0, 1);
+  /* 纵向还给页面滚动，横向留给我们的滑动手势 */
+  touch-action: pan-y;
+}
+.manual-page-layer {
+  min-height: 1px;
+}
+
+@keyframes manual-page-in {
+  from {
+    transform: translateX(calc(var(--flip-x) * 1));
+    opacity: 0.25;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes manual-page-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(calc(var(--flip-x) * -1));
+    opacity: 0.25;
+  }
+}
+.manual-viewport .manual-page-layer.is-entering,
+.manual-viewport .manual-page-layer.is-leaving {
+  /* 注意：只用 top/left/right 定位，**不要** inset:0 ——
+     否则层高会被父容器撑定，量不出这一页自己的内容高度（高度过渡就没法算了） */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  will-change: transform, opacity;
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1); /* 苹果那套缓动 */
+  animation-fill-mode: both;
+}
+.manual-viewport .manual-page-layer.is-entering {
+  animation-name: manual-page-in;
+}
+.manual-viewport .manual-page-layer.is-leaving {
+  animation-name: manual-page-out;
+}
+.manual-viewport .manual-page-layer.dir-next {
+  --flip-x: 100%;
+}
+.manual-viewport .manual-page-layer.dir-prev {
+  --flip-x: -100%;
+}
+
+/* ---------- 左右圆形翻页箭头（贴着页边留白，宽屏才显示） ---------- */
+.manual-arrow {
+  position: fixed;
+  top: 50%;
+  z-index: 25;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg-elev);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font-size: var(--fs-20);
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    border-color 160ms var(--ease),
+    color 160ms var(--ease),
+    transform 160ms var(--ease);
+}
+.manual-arrow.prev {
+  left: max(18px, calc(50% - (var(--page-max) / 2) - 62px));
+  transform: translateY(-50%);
+}
+.manual-arrow.next {
+  right: max(18px, calc(50% - (var(--page-max) / 2) - 62px));
+  transform: translateY(-50%);
+}
+.manual-arrow:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-50%) scale(1.08);
+}
+.manual-arrow:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+
+/* ---------- 底部翻页条 ---------- */
+.manual-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+}
+.manual-pager-pos {
+  font-size: var(--fs-12);
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.manual-pager-btn {
+  min-width: 96px;
+}
+
+/* ---------- 章节目录（扉页内嵌 + 工具条浮层共用同一套列表） ---------- */
+.manual-toc {
+  margin-top: var(--sp-6);
+}
+.manual-toc-title {
+  font-size: var(--fs-16);
+  letter-spacing: 0.24em;
+  text-align: center;
+  color: var(--text-dim);
+  margin-bottom: var(--sp-4);
+}
+.manual-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.manual-toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 140ms var(--ease), color 140ms var(--ease);
+}
+.manual-toc-item:hover {
+  background: var(--surface);
+  color: var(--accent);
+}
+.manual-toc-item.is-active {
+  color: var(--accent);
+}
+.manual-toc-item.is-active .manual-toc-name {
+  font-weight: 600;
+}
+.manual-toc-no {
+  font-size: var(--fs-12);
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+.manual-toc-name {
+  font-family: var(--font-serif);
+  font-size: var(--fs-16);
+  letter-spacing: 0.03em;
+}
+/* 点线引导，像书的目录 */
+.manual-toc-dots {
+  flex: 1 1 auto;
+  align-self: center;
+  height: 0;
+  border-bottom: 1px dotted var(--border-strong);
+  opacity: 0.7;
+  min-width: 16px;
+}
+.manual-toc-date {
+  font-size: var(--fs-12);
+  white-space: nowrap;
+}
+.manual-toc-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 40;
+  width: min(420px, 86vw);
+  max-height: min(60vh, 520px);
+  overflow: auto;
+  padding: var(--sp-4);
+  box-shadow: var(--shadow);
+}
+.manual-toc-panel-title {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-13);
+  letter-spacing: 0.1em;
+}
+
+/* ---------- 章首页 / 正文 / 落款 / 页码 ---------- */
+.manual-chapter-head {
+  text-align: center;
+}
+.manual-chapter-no {
+  margin: 0;
+  font-size: var(--fs-12);
+  letter-spacing: 0.3em;
+  color: var(--gold);
+}
+.manual-chapter-title {
+  margin: var(--sp-3) 0 0;
+  font-size: var(--fs-34);
+  letter-spacing: 0.08em;
+}
+.manual-frame {
+  text-align: center;
+  padding: var(--sp-6) var(--sp-4);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  position: relative;
+}
+.manual-frame::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  pointer-events: none;
+}
+.manual-kicker {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-12);
+  letter-spacing: 0.3em;
+  color: var(--gold);
+}
+.manual-title {
+  font-size: var(--fs-44);
+  letter-spacing: 0.12em;
+}
+.manual-sub {
+  margin: var(--sp-2) 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  letter-spacing: 0.16em;
+  color: var(--text-dim);
+}
+.manual-rule {
+  width: 120px;
+  height: 1px;
+  margin: var(--sp-5) auto;
+  background: var(--gold);
+  opacity: 0.7;
+}
+.manual-doc-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-20);
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+.manual-body {
+  margin-top: var(--sp-6);
+}
+.manual-signoff {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+  font-family: var(--font-serif);
+}
+.manual-page-no {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: var(--fs-12);
+  color: var(--text-dim);
+  letter-spacing: 0.2em;
+}
+
+/* ------------------------------ 登录 ------------------------------ */
+.login-page {
+  display: grid;
+  place-items: center;
+  min-height: 62vh;
+}
+.login-card {
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.login-head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.login-head .brand-mark {
+  width: 44px;
+  height: 44px;
+  font-size: var(--fs-20);
+}
+.login-head p {
+  margin: 0;
+  font-size: var(--fs-13);
+}
+.login-hint {
+  margin: 0;
+  font-size: var(--fs-12);
+  line-height: 1.6;
+}
+
+/* ------------------------------ 分享页 ------------------------------ */
+.share-head {
+  margin: var(--sp-5) 0 var(--sp-4);
+}
+.share-head h1 {
+  margin: var(--sp-2) 0 var(--sp-3);
+}
+.share-file {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.share-file img,
+.share-file video {
+  max-width: 100%;
+  border-radius: var(--radius);
+}
+.share-file-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+.share-foot {
+  margin-top: var(--sp-6);
+  font-size: var(--fs-13);
+}
+
+/* ------------------------------ 空态 / 加载 ------------------------------ */
+.empty-state {
+  text-align: center;
+  padding: var(--sp-7) var(--sp-4);
+  color: var(--text-dim);
+}
+.empty-seal {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: var(--sp-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--seal-radius);
+  font-family: var(--font-serif);
+  font-size: var(--fs-20);
+  color: var(--text-dim);
+}
+.empty-state h3 {
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.loading-seal {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  font-family: var(--font-serif);
+  letter-spacing: 0.2em;
+}
+
+/* ------------------------------ 正文排版（MdViewer） ------------------------------ */
+.md-viewer {
+  font-family: var(--font-doc, var(--font-serif));
+  font-size: var(--fs-16);
+  line-height: var(--leading);
+  color: var(--text);
+  word-wrap: break-word;
+}
+.md-viewer.is-indent > p {
+  text-indent: var(--doc-indent, 2em);
+}
+.md-viewer > *:first-child {
+  margin-top: 0;
+}
+.md-viewer h1,
+.md-viewer h2,
+.md-viewer h3,
+.md-viewer h4 {
+  margin: 1.8em 0 0.7em;
+  letter-spacing: var(--tracking-title);
+}
+.md-viewer h1 {
+  font-size: var(--fs-26);
+}
+.md-viewer h2 {
+  font-size: var(--fs-20);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.md-viewer h3 {
+  font-size: var(--fs-16);
+}
+.md-viewer ul,
+.md-viewer ol {
+  padding-left: 1.4em;
+  margin: 0 0 1em;
+}
+.md-viewer li {
+  margin: 0.25em 0;
+}
+.md-viewer img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.md-viewer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1em;
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+}
+.md-viewer th,
+.md-viewer td {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+}
+.md-viewer th {
+  background: var(--surface);
+  text-align: left;
+  font-weight: 600;
+}
+.md-viewer hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+.md-viewer a {
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.md-viewer input[type='checkbox'] {
+  width: auto;
+  accent-color: var(--accent);
+}
+
+/* ------------------------------ 响应式 ------------------------------ */
+@media (max-width: 720px) {
+  :root {
+    --fs-44: 30px;
+    --fs-34: 24px;
+    --fs-26: 20px;
+    --sp-8: 48px;
+    --sp-7: 32px;
+  }
+  .container {
+    padding: 0 var(--sp-4);
+  }
+  .topbar-inner {
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    padding: var(--sp-2) 0;
+  }
+  .nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    gap: var(--sp-4);
+  }
+  .topbar-right {
+    margin-left: auto;
+  }
+  .reader,
+  .manual {
+    padding: var(--sp-4);
+  }
+  .hero {
+    padding: var(--sp-6) 0 var(--sp-5);
+  }
+  .file-table {
+    min-width: 680px;
+  }
+  /* 手机上左右箭头会压到正文，翻页全靠底部那条 */
+  .manual-pager-btn {
+    min-width: 0;
+  }
+  .manual-chapter-title {
+    font-size: var(--fs-26);
+  }
+}
+
+/* 窄屏没有页边留白，圆形箭头没地方站 —— 收起来 */
+@media (max-width: 1080px) {
+  .manual-arrow {
+    display: none;
+  }
+}
+
+/* 关了动效就别滑了：直接换页 */
+@media (prefers-reduced-motion: reduce) {
+  .manual-viewport {
+    transition: none;
+  }
+  .manual-viewport .manual-page-layer.is-entering,
+  .manual-viewport .manual-page-layer.is-leaving {
+    animation: none;
+    position: static;
+  }
+}
+
+/* ==========================================================================
+   问卷：免登录填答页（/q/<token>）+ 编辑台的问卷面板
+   只补排版必需的东西，颜色一律走 token；容器/表单控件复用 card / field / btn
+   ========================================================================== */
+
+/* ---------- 填答页 ---------- */
+.survey-page {
+  max-width: var(--reading-max);
+  margin: 0 auto;
+  padding: var(--sp-8) var(--sp-4);
+}
+.survey-head {
+  margin-bottom: var(--sp-6);
+}
+.survey-brand {
+  font-size: var(--fs-13);
+  letter-spacing: var(--tracking-title);
+  margin: 0 0 var(--sp-2);
+}
+.survey-title {
+  font-size: var(--fs-34);
+  line-height: var(--leading-tight);
+  margin: 0 0 var(--sp-3);
+}
+.survey-desc {
+  color: var(--text-dim);
+}
+.survey-form {
+  padding: var(--sp-5);
+}
+.survey-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+}
+.survey-done {
+  text-align: center;
+  padding: var(--sp-7) var(--sp-5);
+}
+.survey-done h1 {
+  font-size: var(--fs-26);
+  margin: var(--sp-3) 0 var(--sp-2);
+}
+
+/* 题目 */
+.q-item {
+  margin-bottom: var(--sp-6);
+}
+.q-item:last-child {
+  margin-bottom: 0;
+}
+.q-item.is-invalid .q-title {
+  color: var(--err);
+}
+.q-title {
+  font-size: var(--fs-16);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  margin-bottom: var(--sp-2);
+}
+.q-no {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  color: var(--text-dim);
+  margin-right: var(--sp-2);
+}
+.q-req {
+  color: var(--err);
+  margin-left: var(--sp-1);
+}
+.q-hint {
+  font-size: var(--fs-13);
+  color: var(--text-dim);
+  margin: 0 0 var(--sp-3);
+}
+.q-err {
+  font-size: var(--fs-13);
+  color: var(--err);
+  margin: var(--sp-2) 0 0;
+}
+
+/* 选项 */
+.choice-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elev);
+  cursor: pointer;
+  transition:
+    border-color 150ms var(--ease),
+    background-color 150ms var(--ease);
+}
+.choice:hover {
+  border-color: var(--border-strong);
+}
+.choice.is-on {
+  border-color: var(--accent);
+}
+.choice input {
+  margin-top: 0.35em;
+  accent-color: var(--accent);
+  flex: none;
+}
+.choice span {
+  line-height: var(--leading-tight);
+}
+
+/* 填空 */
+.q-input,
+.q-textarea {
+  width: 100%;
+}
+.q-textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+/* 评分 */
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+.rating-dot {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background-color 150ms var(--ease),
+    border-color 150ms var(--ease);
+}
+.rating-dot:hover {
+  border-color: var(--border-strong);
+}
+.rating-dot.is-on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.rating-hint {
+  font-size: var(--fs-12);
+  color: var(--text-dim);
+}
+
+/* ---------- 编辑台 · 问卷列表 ---------- */
+.survey-row {
+  display: flex;
+  gap: var(--sp-4);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.survey-row-main {
+  min-width: 18rem;
+  flex: 1 1 26rem;
+}
+.survey-row-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+.survey-row-meta {
+  font-size: var(--fs-13);
+  margin: var(--sp-2) 0 var(--sp-3);
+}
+.survey-row-actions {
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+.survey-link {
+  display: flex;
+  gap: var(--sp-2);
+}
+.survey-link input {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+.tag-off {
+  opacity: 0.6;
+}
+
+/* 题目编辑 */
+.q-edit {
+  margin-bottom: var(--sp-3);
+}
+.q-edit-head {
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+.q-edit-title {
+  flex: 1 1 14rem;
+  min-width: 10rem;
+}
+
+/* 答卷统计 */
+.q-summary {
+  padding: var(--sp-3) 0;
+  border-bottom: 1px solid var(--border);
+}
+.q-summary:last-child {
+  border-bottom: none;
+}
+.q-summary-title {
+  font-weight: 600;
+  margin-bottom: var(--sp-2);
+}
+.q-summary-line {
+  font-size: var(--fs-14);
+}
+.q-bar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-13);
+  margin: var(--sp-1) 0;
+}
+.q-bar-label {
+  flex: 0 0 12rem;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.q-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.q-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+.q-bar-num {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  color: var(--text-dim);
+}
+.q-answer-row {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-2) 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: var(--fs-14);
+}
+.q-answer-row:last-child {
+  border-bottom: none;
+}
+.q-answer-row > span:first-child {
+  flex: 0 0 12rem;
+}
+
+@media (max-width: 720px) {
+  .survey-page {
+    padding: var(--sp-6) var(--sp-3);
+  }
+  .survey-title {
+    font-size: var(--fs-26);
+  }
+  .q-bar-label,
+  .q-answer-row > span:first-child {
+    flex-basis: 40%;
+  }
+}

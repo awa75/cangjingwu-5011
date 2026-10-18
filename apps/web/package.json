@@ -1,0 +1,31 @@
+{
+  "name": "@cangjingwu/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "《藏经坞》前端（单应用三路由组：作品集 / 推演台 / 管理后台 + 分享页）",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json && vite build",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@cangjingwu/shared": "workspace:*",
+    "dompurify": "^3.2.6",
+    "highlight.js": "^11.11.1",
+    "html-to-image": "^1.11.13",
+    "marked": "^15.0.12",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.5.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.3.5"
+  }
+}

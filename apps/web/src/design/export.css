@@ -1,0 +1,518 @@
+/* ==========================================================================
+   导出长图的三种固定风格
+   作用于阅读页的 <article class="reader"> 与说明页的 <article class="manual">：
+   导出时会把节点克隆到屏幕外，
+   打上 data-export-style，渲染成图片后再丢掉 —— 屏幕上的样子不受影响。
+
+   注意：这里是**固定配色**（不是主题 token），因为导出图要脱离站点主题独立成立。
+   ========================================================================== */
+
+/* ============================== 瑞士国际主义 ============================== */
+[data-export-style='swiss'] {
+  --swiss-ink: #16181d;
+  --swiss-dim: #6b7280;
+  --swiss-rule: #e5e7eb;
+  --swiss-red: #e30613;
+  background: #ffffff;
+  color: var(--swiss-ink);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 56px 64px 40px;
+  font-family: system-ui, 'Helvetica Neue', Helvetica, Arial, 'Noto Sans SC', 'PingFang SC', sans-serif;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+/* 顶部一条瑞士红 */
+[data-export-style='swiss']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: var(--swiss-red);
+}
+[data-export-style='swiss'] .reader-head {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 28px;
+}
+[data-export-style='swiss'] .reader-head h1 {
+  font-family: inherit;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  padding-left: 0;
+  margin: 0 0 14px;
+  max-width: 22ch;
+}
+[data-export-style='swiss'] .reader-head h1::before {
+  display: none;
+}
+[data-export-style='swiss'] .reader-meta {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+  padding-top: 12px;
+  border-top: 2px solid var(--swiss-ink);
+  color: var(--swiss-dim);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+[data-export-style='swiss'] .md-viewer {
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--swiss-ink);
+}
+[data-export-style='swiss'] .md-viewer h1,
+[data-export-style='swiss'] .md-viewer h2,
+[data-export-style='swiss'] .md-viewer h3,
+[data-export-style='swiss'] .md-viewer h4 {
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 40px 0 14px;
+}
+[data-export-style='swiss'] .md-viewer h1 {
+  font-size: 26px;
+}
+[data-export-style='swiss'] .md-viewer h2 {
+  font-size: 21px;
+  border-bottom: none;
+  border-top: 3px solid var(--swiss-ink);
+  padding-top: 12px;
+  padding-bottom: 0;
+}
+[data-export-style='swiss'] .md-viewer h3 {
+  font-size: 17px;
+  color: var(--swiss-red);
+}
+[data-export-style='swiss'] .md-viewer p {
+  margin: 0 0 16px;
+}
+[data-export-style='swiss'] .md-viewer.is-indent > p {
+  text-indent: 0; /* 瑞士风格不缩进 */
+}
+[data-export-style='swiss'] .md-viewer ul,
+[data-export-style='swiss'] .md-viewer ol {
+  padding-left: 1.1em;
+}
+[data-export-style='swiss'] .md-viewer li {
+  margin: 0.3em 0;
+}
+[data-export-style='swiss'] .md-viewer li::marker {
+  color: var(--swiss-red);
+  font-weight: 700;
+}
+[data-export-style='swiss'] .md-viewer blockquote {
+  border-left: 6px solid var(--swiss-red);
+  background: #f6f7f9;
+  padding: 14px 18px;
+  margin: 0 0 20px;
+  color: #33383f;
+}
+[data-export-style='swiss'] .md-viewer pre {
+  background: #f6f7f9;
+  border: none;
+  border-left: 6px solid var(--swiss-ink);
+  border-radius: 0;
+  padding: 16px 18px;
+  color: var(--swiss-ink);
+}
+[data-export-style='swiss'] .md-viewer :not(pre) > code {
+  background: #f1f3f5;
+  border: none;
+  border-radius: 0;
+  padding: 1px 5px;
+  color: var(--swiss-red);
+}
+[data-export-style='swiss'] .md-viewer table {
+  border-collapse: collapse;
+  font-size: 13px;
+}
+[data-export-style='swiss'] .md-viewer th {
+  background: transparent;
+  color: var(--swiss-ink);
+  border: none;
+  border-bottom: 2px solid var(--swiss-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+[data-export-style='swiss'] .md-viewer td {
+  border: none;
+  border-bottom: 1px solid var(--swiss-rule);
+  padding: 10px 12px;
+}
+[data-export-style='swiss'] .md-viewer img {
+  border: none;
+  border-radius: 0;
+}
+[data-export-style='swiss'] .md-viewer hr {
+  border-top: 3px solid var(--swiss-ink);
+  margin: 32px 0;
+}
+[data-export-style='swiss'] .md-viewer a {
+  color: var(--swiss-red);
+  border-bottom: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+[data-export-style='swiss'] .reader-foot {
+  border-top: 2px solid var(--swiss-ink);
+  color: var(--swiss-dim);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding-top: 14px;
+}
+
+/* ============================== 黑金 / 白金（共用骨架） ============================== */
+[data-export-style='blackgold'],
+[data-export-style='whitegold'] {
+  --g-accent: #d4af37;
+  --g-accent-soft: rgba(212, 175, 55, 0.35);
+  --g-ink: #ece0c8;
+  --g-dim: #a89a76;
+  --g-bg: #0d0c0a;
+  --g-panel: #17140f;
+  --g-rule: rgba(212, 175, 55, 0.32);
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgba(212, 175, 55, 0.1), transparent 62%),
+    var(--g-bg);
+  color: var(--g-ink);
+  border: 1px solid var(--g-rule);
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 60px 68px 44px;
+  font-family: var(--font-serif);
+  letter-spacing: 0.02em;
+}
+[data-export-style='whitegold'] {
+  --g-accent: #a8862f;
+  --g-accent-soft: rgba(168, 134, 47, 0.3);
+  --g-ink: #2b261c;
+  --g-dim: #7a6f56;
+  --g-bg: #fbf8f1;
+  --g-panel: #f3ecdc;
+  --g-rule: rgba(168, 134, 47, 0.34);
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgba(168, 134, 47, 0.09), transparent 62%),
+    var(--g-bg);
+}
+
+/* 标题居中 + 契金双线 */
+[data-export-style='blackgold'] .reader-head,
+[data-export-style='whitegold'] .reader-head {
+  text-align: center;
+  border-bottom: none;
+  padding-bottom: 20px;
+  margin-bottom: 34px;
+  position: relative;
+}
+[data-export-style='blackgold'] .reader-head::after,
+[data-export-style='whitegold'] .reader-head::after {
+  content: '';
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  border-top: 3px double var(--g-accent);
+  opacity: 0.85;
+}
+[data-export-style='blackgold'] .reader-head h1,
+[data-export-style='whitegold'] .reader-head h1 {
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  padding-left: 0;
+  margin: 0 0 16px;
+  color: var(--g-ink);
+}
+[data-export-style='blackgold'] .reader-head h1::before,
+[data-export-style='whitegold'] .reader-head h1::before {
+  display: none;
+}
+[data-export-style='blackgold'] .reader-meta,
+[data-export-style='whitegold'] .reader-meta {
+  justify-content: center;
+  gap: 22px;
+  color: var(--g-dim);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+[data-export-style='blackgold'] .md-viewer,
+[data-export-style='whitegold'] .md-viewer {
+  color: var(--g-ink);
+  font-size: 16px;
+  line-height: 1.9;
+}
+[data-export-style='blackgold'] .md-viewer h2,
+[data-export-style='whitegold'] .md-viewer h2 {
+  border-bottom: none;
+  border-top: 1px solid var(--g-rule);
+  padding-top: 16px;
+  letter-spacing: 0.14em;
+  color: var(--g-accent);
+}
+[data-export-style='blackgold'] .md-viewer h3,
+[data-export-style='whitegold'] .md-viewer h3,
+[data-export-style='blackgold'] .md-viewer h1,
+[data-export-style='whitegold'] .md-viewer h1 {
+  color: var(--g-ink);
+  letter-spacing: 0.1em;
+}
+[data-export-style='blackgold'] .md-viewer blockquote,
+[data-export-style='whitegold'] .md-viewer blockquote {
+  border-left: 3px solid var(--g-accent);
+  background: var(--g-panel);
+  padding: 14px 20px;
+  color: var(--g-dim);
+}
+[data-export-style='blackgold'] .md-viewer pre,
+[data-export-style='whitegold'] .md-viewer pre {
+  background: var(--g-panel);
+  border: 1px solid var(--g-rule);
+  color: var(--g-ink);
+}
+[data-export-style='blackgold'] .md-viewer :not(pre) > code,
+[data-export-style='whitegold'] .md-viewer :not(pre) > code {
+  background: var(--g-panel);
+  border: 1px solid var(--g-rule);
+  color: var(--g-accent);
+}
+[data-export-style='blackgold'] .md-viewer a,
+[data-export-style='whitegold'] .md-viewer a {
+  color: var(--g-accent);
+  border-bottom: 1px solid var(--g-accent-soft);
+}
+[data-export-style='blackgold'] .md-viewer table,
+[data-export-style='whitegold'] .md-viewer table {
+  border-collapse: collapse;
+}
+[data-export-style='blackgold'] .md-viewer th,
+[data-export-style='whitegold'] .md-viewer th {
+  background: var(--g-panel);
+  color: var(--g-accent);
+  border: 1px solid var(--g-rule);
+  letter-spacing: 0.1em;
+}
+[data-export-style='blackgold'] .md-viewer td,
+[data-export-style='whitegold'] .md-viewer td {
+  border: 1px solid var(--g-rule);
+}
+[data-export-style='blackgold'] .md-viewer img,
+[data-export-style='whitegold'] .md-viewer img {
+  border: 1px solid var(--g-rule);
+  border-radius: 1px;
+}
+[data-export-style='blackgold'] .md-viewer hr,
+[data-export-style='whitegold'] .md-viewer hr {
+  border-top: 1px solid var(--g-rule);
+}
+[data-export-style='blackgold'] .md-viewer li::marker,
+[data-export-style='whitegold'] .md-viewer li::marker {
+  color: var(--g-accent);
+}
+[data-export-style='blackgold'] .reader-foot,
+[data-export-style='whitegold'] .reader-foot {
+  border-top: 3px double var(--g-accent);
+  color: var(--g-dim);
+  letter-spacing: 0.22em;
+  padding-top: 16px;
+}
+
+/* ==========================================================================
+   导出风格选择弹层
+   ========================================================================== */
+.export-dialog {
+  width: min(560px, 100%);
+}
+.export-dialog-sub {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-13);
+}
+
+.export-styles {
+  display: grid;
+  gap: var(--sp-2);
+}
+.export-style {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elev);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 160ms var(--ease),
+    background-color 160ms var(--ease);
+}
+.export-style:hover {
+  border-color: var(--border-strong);
+}
+.export-style.is-picked {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.export-style-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.export-style-text strong {
+  font-family: var(--font-serif);
+  font-size: var(--fs-16);
+}
+.export-style-text em {
+  font-style: normal;
+  font-size: var(--fs-12);
+  line-height: 1.5;
+}
+.export-style-check {
+  color: var(--accent);
+  font-size: var(--fs-16);
+}
+
+/* 迷你版式预览：一张小纸 + 标题块 + 两条正文 + 一道强调线 */
+.export-preview {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 56px;
+  height: 72px;
+  padding: 8px 7px;
+  border: 1px solid;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.export-preview-bar {
+  height: 4px;
+  width: 100%;
+  margin: -8px -7px 2px;
+  width: calc(100% + 14px);
+}
+.export-preview-title {
+  height: 7px;
+  width: 78%;
+  border-radius: 1px;
+}
+.export-preview-line {
+  height: 3px;
+  width: 100%;
+  border-radius: 1px;
+}
+.export-preview-line.short {
+  width: 62%;
+}
+.export-preview-rule {
+  height: 2px;
+  width: 100%;
+  margin: 2px 0;
+}
+
+/* ==========================================================================
+   说明书页（.manual）的扉页在三种固定风格下的样子
+   —— 阅读页的 .reader-head/.reader-foot 规则管不到它，这里单独收口
+   ========================================================================== */
+
+/* 瑞士：扉页不再是居中"书封"，改成左对齐的大字刊头 */
+[data-export-style='swiss'] .manual-frame {
+  text-align: left;
+  border: none;
+  padding: 0 0 18px;
+}
+[data-export-style='swiss'] .manual-frame::before {
+  display: none;
+}
+[data-export-style='swiss'] .manual-kicker {
+  color: #e30613;
+  letter-spacing: 0.3em;
+  margin-bottom: 18px;
+}
+[data-export-style='swiss'] .manual-title {
+  font-family: inherit;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+[data-export-style='swiss'] .manual-sub {
+  font-family: inherit;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #6b7280;
+}
+[data-export-style='swiss'] .manual-rule {
+  width: 100%;
+  height: 3px;
+  margin: 20px 0;
+  background: #16181d;
+  opacity: 1;
+}
+[data-export-style='swiss'] .manual-doc-title {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+[data-export-style='swiss'] .manual-signoff {
+  justify-content: flex-start;
+  gap: 14px;
+  border-top: 2px solid #16181d;
+  padding-top: 14px;
+  font-family: inherit;
+}
+[data-export-style='swiss'] .manual-page-no {
+  border-top: 1px solid #e5e7eb;
+  text-align: left;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* 黑金 / 白金：保留契金双线书封，只换金与底 */
+[data-export-style='blackgold'] .manual-frame,
+[data-export-style='whitegold'] .manual-frame {
+  border-color: var(--g-accent);
+}
+[data-export-style='blackgold'] .manual-frame::before,
+[data-export-style='whitegold'] .manual-frame::before {
+  border-color: var(--g-accent-soft);
+}
+[data-export-style='blackgold'] .manual-kicker,
+[data-export-style='whitegold'] .manual-kicker,
+[data-export-style='blackgold'] .manual-doc-title,
+[data-export-style='whitegold'] .manual-doc-title {
+  color: var(--g-accent);
+}
+[data-export-style='blackgold'] .manual-sub,
+[data-export-style='whitegold'] .manual-sub {
+  color: var(--g-dim);
+}
+[data-export-style='blackgold'] .manual-rule,
+[data-export-style='whitegold'] .manual-rule {
+  background: var(--g-accent);
+  opacity: 0.9;
+  box-shadow: 0 3px 0 -1px var(--g-accent-soft);
+}
+[data-export-style='blackgold'] .manual-signoff,
+[data-export-style='whitegold'] .manual-signoff {
+  border-top: 3px double var(--g-accent);
+  padding-top: 16px;
+}
+[data-export-style='blackgold'] .manual-page-no,
+[data-export-style='whitegold'] .manual-page-no {
+  border-top: 1px solid var(--g-rule);
+  color: var(--g-dim);
+}

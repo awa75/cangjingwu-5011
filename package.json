@@ -1,0 +1,26 @@
+{
+  "name": "cangjingwu",
+  "version": "0.6.8",
+  "private": true,
+  "description": "藏经坞：ZSR·DCM 协议养护计划（2026–2030）",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @cangjingwu/server dev",
+    "dev:web": "pnpm --filter @cangjingwu/web dev",
+    "build": "pnpm --filter @cangjingwu/web build",
+    "start": "pnpm --filter @cangjingwu/server start",
+    "migrate": "pnpm --filter @cangjingwu/server migrate",
+    "typecheck": "pnpm -r typecheck",
+    "smoke": "node scripts/smoke.mjs",
+    "gen:env": "node scripts/gen-env.mjs",
+    "pack:linux": "node scripts/pack-linux.mjs",
+    "backup": "node scripts/backup-db.mjs"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

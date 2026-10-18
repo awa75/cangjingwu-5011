@@ -1,0 +1,31 @@
+{
+  "name": "@cangjingwu/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --disable-warning=ExperimentalWarning --import tsx --watch src/index.ts",
+    "start": "node --disable-warning=ExperimentalWarning --import tsx src/index.ts",
+    "migrate": "node --disable-warning=ExperimentalWarning --import tsx src/cli/migrate.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@cangjingwu/shared": "workspace:*",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.0",
+    "tsx": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.2"
+  }
+}

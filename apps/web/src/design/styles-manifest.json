@@ -1,0 +1,1423 @@
+{
+  "source": "https://github.com/rxw2023/Front-end-Design-Styles",
+  "generatedAt": "2026-09-13T19:13:50.968Z",
+  "themes": [
+    {
+      "id": "s-3d-hyper",
+      "name": "3D 超写实",
+      "en": "3D & HYPERREALISM",
+      "note": "Perspective · 深度阴影 · 材质纹理",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0f0f1a",
+          "label": "#0f0f1a"
+        },
+        {
+          "hex": "#1a2040",
+          "label": "#1a2040"
+        },
+        {
+          "hex": "#d0d8f0",
+          "label": "#d0d8f0"
+        },
+        {
+          "hex": "#3355cc",
+          "label": "#3355cc"
+        },
+        {
+          "hex": "#4466dd",
+          "label": "#4466dd"
+        }
+      ]
+    },
+    {
+      "id": "s-3d-product",
+      "name": "3D产品展示",
+      "en": "3D PRODUCT PREVIEW",
+      "note": "产品悬浮 · 深阴影 · Apple极简",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fafafa",
+          "label": "#fafafa"
+        },
+        {
+          "hex": "#111111",
+          "label": "#111111"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#333333",
+          "label": "#333333"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        }
+      ]
+    },
+    {
+      "id": "s-inclusive",
+      "name": "包容性设计",
+      "en": "INCLUSIVE DESIGN",
+      "note": "粗边框 · 大触摸区 · 键盘可见",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fefefe",
+          "label": "#fefefe"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#0055cc",
+          "label": "#0055cc"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#1a3a5c",
+          "label": "#1a3a5c"
+        }
+      ]
+    },
+    {
+      "id": "s-flat",
+      "name": "扁平设计",
+      "en": "FLAT DESIGN",
+      "note": "无阴影 · 纯色 · 移动友好",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f0f4f8",
+          "label": "#f0f4f8"
+        },
+        {
+          "hex": "#3490dc",
+          "label": "#3490dc"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#2d3748",
+          "label": "#2d3748"
+        },
+        {
+          "hex": "#1a202c",
+          "label": "#1a202c"
+        }
+      ]
+    },
+    {
+      "id": "s-bento",
+      "name": "便当盒网格",
+      "en": "BENTO BOX GRID",
+      "note": "不等大卡片 · Apple风格 · 圆角拼贴",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f5f5f7",
+          "label": "#f5f5f7"
+        },
+        {
+          "hex": "#0071e3",
+          "label": "#0071e3"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#1d1d1f",
+          "label": "#1d1d1f"
+        },
+        {
+          "hex": "#333333",
+          "label": "#333333"
+        }
+      ]
+    },
+    {
+      "id": "s-bento-2",
+      "name": "便当网格2.0",
+      "en": "BENTO GRIDS 2.0",
+      "note": "暖灰底色 · 红色点缀 · 不等大排布",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f2f2f7",
+          "label": "#f2f2f7"
+        },
+        {
+          "hex": "#ff3b30",
+          "label": "#ff3b30"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#111111",
+          "label": "#111111"
+        },
+        {
+          "hex": "#333333",
+          "label": "#333333"
+        }
+      ]
+    },
+    {
+      "id": "s-glass",
+      "name": "玻璃拟态",
+      "en": "GLASSMORPHISM + RETROFUTURISM",
+      "note": "扫描线 · 毛玻璃 · 酸黄×深蓝 · 80s赛博美学",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0a0e27",
+          "label": "#0a0e27"
+        },
+        {
+          "hex": "#dfff00",
+          "label": "#dfff00"
+        },
+        {
+          "hex": "#2454ff",
+          "label": "#2454ff"
+        },
+        {
+          "hex": "#141a3a",
+          "label": "#141a3a"
+        },
+        {
+          "hex": "#e8eaf0",
+          "label": "#e8eaf0"
+        }
+      ]
+    },
+    {
+      "id": "s-tactile",
+      "name": "触觉数字",
+      "en": "TACTILE DIGITAL / DEFORMABLE UI",
+      "note": "按压反馈 · 厚度阴影 · 可触摸感",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f8f5f0",
+          "label": "#f8f5f0"
+        },
+        {
+          "hex": "#4a4a3a",
+          "label": "#4a4a3a"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#2a2a20",
+          "label": "#2a2a20"
+        },
+        {
+          "hex": "#e0ddd8",
+          "label": "#e0ddd8"
+        }
+      ]
+    },
+    {
+      "id": "s-eink",
+      "name": "电子墨水",
+      "en": "E-INK / PAPER",
+      "note": "仿纸阅读 · 衬线字体 · 极简舒适",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#faf8f0",
+          "label": "#faf8f0"
+        },
+        {
+          "hex": "#3a3a30",
+          "label": "#3a3a30"
+        },
+        {
+          "hex": "#1a1a10",
+          "label": "#1a1a10"
+        },
+        {
+          "hex": "#ddd8c8",
+          "label": "#ddd8c8"
+        },
+        {
+          "hex": "#f0ede0",
+          "label": "#f0ede0"
+        }
+      ]
+    },
+    {
+      "id": "s-kinetic",
+      "name": "动态排版",
+      "en": "KINETIC TYPOGRAPHY",
+      "note": "文字即视觉 · 超大字重 · 黑底白字",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#cccccc",
+          "label": "#cccccc"
+        },
+        {
+          "hex": "#0a0a0a",
+          "label": "#0a0a0a"
+        },
+        {
+          "hex": "#222222",
+          "label": "#222222"
+        }
+      ]
+    },
+    {
+      "id": "s-motion",
+      "name": "动效驱动",
+      "en": "MOTION-DRIVEN",
+      "note": "弹簧缓动 · 缩放旋转 · 动效语言",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#111111",
+          "label": "#111111"
+        },
+        {
+          "hex": "#ff6b6b",
+          "label": "#ff6b6b"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#1a1a1a",
+          "label": "#1a1a1a"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        }
+      ]
+    },
+    {
+      "id": "s-raw",
+      "name": "反精致粗糙",
+      "en": "ANTI-POLISH / RAW AESTHETIC",
+      "note": "虚线边框 · 等宽字体 · 拒绝精致",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fdfdfd",
+          "label": "#fdfdfd"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#111111",
+          "label": "#111111"
+        },
+        {
+          "hex": "#eeeeee",
+          "label": "#eeeeee"
+        }
+      ]
+    },
+    {
+      "id": "s-biomimetic",
+      "name": "仿生有机2.0",
+      "en": "BIOMIMETIC / ORGANIC 2.0",
+      "note": "大自然形态 · 绿灰渐变 · 半透明层次",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#e8ede4",
+          "label": "#e8ede4"
+        },
+        {
+          "hex": "#2a4a2a",
+          "label": "#2a4a2a"
+        },
+        {
+          "hex": "#4a7a4a",
+          "label": "#4a7a4a"
+        },
+        {
+          "hex": "#3a4a3a",
+          "label": "#3a4a3a"
+        },
+        {
+          "hex": "#dce3d8",
+          "label": "#dce3d8"
+        }
+      ]
+    },
+    {
+      "id": "s-retro95",
+      "name": "复古 Win95 设计",
+      "en": "RETRO WINDOWS 95",
+      "note": "3D凸起边框 · #c0c0c0灰面板 · 渐变标题栏 · 任务栏",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#008080",
+          "label": "#008080"
+        },
+        {
+          "hex": "#c0c0c0",
+          "label": "#c0c0c0"
+        },
+        {
+          "hex": "#000080",
+          "label": "#000080"
+        },
+        {
+          "hex": "#dfdfdf",
+          "label": "#dfdfdf"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        }
+      ]
+    },
+    {
+      "id": "s-vintage-film",
+      "name": "复古胶片",
+      "en": "VINTAGE ANALOG / RETRO FILM",
+      "note": "暖黄纸色 · 衬线体 · 胶卷怀旧",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f5e8d0",
+          "label": "#f5e8d0"
+        },
+        {
+          "hex": "#2a1a08",
+          "label": "#2a1a08"
+        },
+        {
+          "hex": "#3a2a10",
+          "label": "#3a2a10"
+        },
+        {
+          "hex": "#8b6914",
+          "label": "#8b6914"
+        },
+        {
+          "hex": "#faf0dd",
+          "label": "#faf0dd"
+        }
+      ]
+    },
+    {
+      "id": "s-retro-future",
+      "name": "复古未来",
+      "en": "RETRO-FUTURISM",
+      "note": "霓虹粉 · 太空深紫 · 80年代科幻",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#1a0a2e",
+          "label": "#1a0a2e"
+        },
+        {
+          "hex": "#ff6b9d",
+          "label": "#ff6b9d"
+        },
+        {
+          "hex": "#c0a8e0",
+          "label": "#c0a8e0"
+        },
+        {
+          "hex": "#0d1a3a",
+          "label": "#0d1a3a"
+        },
+        {
+          "hex": "#ff4b8d",
+          "label": "#ff4b8d"
+        }
+      ]
+    },
+    {
+      "id": "s-cursor",
+      "name": "光标交互",
+      "en": "INTERACTIVE CURSOR DESIGN",
+      "note": "Crosshair · 跟随特效 · 响应式光标",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#1a1a2e",
+          "label": "#1a1a2e"
+        },
+        {
+          "hex": "#dddddd",
+          "label": "#dddddd"
+        },
+        {
+          "hex": "#222240",
+          "label": "#222240"
+        },
+        {
+          "hex": "#333344",
+          "label": "#333344"
+        },
+        {
+          "hex": "#a0a0c0",
+          "label": "#a0a0c0"
+        }
+      ]
+    },
+    {
+      "id": "s-ex-minimal",
+      "name": "极度极简",
+      "en": "EXAGGERATED MINIMALISM",
+      "note": "超大号标题 · 极少文字 · 白空间",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#333333",
+          "label": "#333333"
+        },
+        {
+          "hex": "#1a1a1a",
+          "label": "#1a1a1a"
+        },
+        {
+          "hex": "#eeeeee",
+          "label": "#eeeeee"
+        }
+      ]
+    },
+    {
+      "id": "s-aurora",
+      "name": "极光界面",
+      "en": "AURORA UI",
+      "note": "渐变光晕 · 毛玻璃 · 蓝绿紫交织",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0a0f1e",
+          "label": "#0a0f1e"
+        },
+        {
+          "hex": "#0d9488",
+          "label": "#0d9488"
+        },
+        {
+          "hex": "#c8daf0",
+          "label": "#c8daf0"
+        },
+        {
+          "hex": "#141e38",
+          "label": "#141e38"
+        },
+        {
+          "hex": "#0f766e",
+          "label": "#0f766e"
+        }
+      ]
+    },
+    {
+      "id": "s-gradient-mesh",
+      "name": "渐变网格",
+      "en": "GRADIENT MESH / AURORA EVOLVED",
+      "note": "多层光斑 · 粉蓝叠加 · 迷幻空间",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0a0e1a",
+          "label": "#0a0e1a"
+        },
+        {
+          "hex": "#ff64c8",
+          "label": "#ff64c8"
+        },
+        {
+          "hex": "#00c8ff",
+          "label": "#00c8ff"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#e0e8f8",
+          "label": "#e0e8f8"
+        }
+      ]
+    },
+    {
+      "id": "s-hud",
+      "name": "科幻HUD",
+      "en": "HUD / SCI-FI FUI",
+      "note": "全息投影 · 发光青色 · 科幻电影感",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#001020",
+          "label": "#001020"
+        },
+        {
+          "hex": "#00aaff",
+          "label": "#00aaff"
+        },
+        {
+          "hex": "#00ccff",
+          "label": "#00ccff"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#003050",
+          "label": "#003050"
+        }
+      ]
+    },
+    {
+      "id": "s-spatial",
+      "name": "空间计算",
+      "en": "SPATIAL UI (VISIONOS)",
+      "note": "Frosted Glass · 22px圆角 · 悬浮空间",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#1a1a2e",
+          "label": "#1a1a2e"
+        },
+        {
+          "hex": "#16213e",
+          "label": "#16213e"
+        },
+        {
+          "hex": "#e8eef8",
+          "label": "#e8eef8"
+        },
+        {
+          "hex": "#a0c0ff",
+          "label": "#a0c0ff"
+        },
+        {
+          "hex": "#141428",
+          "label": "#141428"
+        }
+      ]
+    },
+    {
+      "id": "s-zero",
+      "name": "零界面",
+      "en": "ZERO INTERFACE",
+      "note": "无边框 · 无背景 · 纯内容",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#333333",
+          "label": "#333333"
+        },
+        {
+          "hex": "#cccccc",
+          "label": "#cccccc"
+        },
+        {
+          "hex": "#f0f0f0",
+          "label": "#f0f0f0"
+        }
+      ]
+    },
+    {
+      "id": "s-memphis",
+      "name": "孟菲斯设计",
+      "en": "MEMPHIS DESIGN",
+      "note": "几何拼贴 · 波点锯齿 · 80年代后现代",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fff5ee",
+          "label": "#fff5ee"
+        },
+        {
+          "hex": "#ff6b6b",
+          "label": "#ff6b6b"
+        },
+        {
+          "hex": "#4ecdc4",
+          "label": "#4ecdc4"
+        },
+        {
+          "hex": "#ffe66d",
+          "label": "#ffe66d"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        }
+      ]
+    },
+    {
+      "id": "s-japanese",
+      "name": "日系编辑美学",
+      "en": "JAPANESE EDITORIAL",
+      "note": "暖调纸色 · 中日文混排 · 柔和分割 · 荧光黄下划线",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f1f0ea",
+          "label": "#f1f0ea"
+        },
+        {
+          "hex": "#faf9f4",
+          "label": "#faf9f4"
+        },
+        {
+          "hex": "#dfff00",
+          "label": "#dfff00"
+        },
+        {
+          "hex": "#d4d3cc",
+          "label": "#d4d3cc"
+        },
+        {
+          "hex": "#2c2b28",
+          "label": "#2c2b28"
+        }
+      ]
+    },
+    {
+      "id": "s-soft-ui",
+      "name": "柔和UI进化",
+      "en": "SOFT UI EVOLUTION",
+      "note": "精致层次 · 浅灰蓝 · 企业级柔和",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#eef0f4",
+          "label": "#eef0f4"
+        },
+        {
+          "hex": "#6382dc",
+          "label": "#6382dc"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#2d3748",
+          "label": "#2d3748"
+        },
+        {
+          "hex": "#f8faff",
+          "label": "#f8faff"
+        }
+      ]
+    },
+    {
+      "id": "s-swiss",
+      "name": "瑞士风格",
+      "en": "SWISS STYLE",
+      "note": "12列网格 · 900字重 · 非对称布局 · 四色系统",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fafaf9",
+          "label": "#fafaf9"
+        },
+        {
+          "hex": "#1a1a1a",
+          "label": "#1a1a1a"
+        },
+        {
+          "hex": "#6b7280",
+          "label": "#6b7280"
+        },
+        {
+          "hex": "#e5e7eb",
+          "label": "#e5e7eb"
+        }
+      ]
+    },
+    {
+      "id": "s-swiss-2",
+      "name": "瑞士现代2.0",
+      "en": "SWISS MODERNISM 2.0",
+      "note": "极白底色 · 顶部线分割 · 4rem标题",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fcfcfc",
+          "label": "#fcfcfc"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#333333",
+          "label": "#333333"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        }
+      ]
+    },
+    {
+      "id": "s-cyberpunk",
+      "name": "赛博朋克",
+      "en": "CYBERPUNK UI",
+      "note": "霓虹发光 · 品红+亮绿 · 高科技低生活",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0a0a0a",
+          "label": "#0a0a0a"
+        },
+        {
+          "hex": "#ff00ff",
+          "label": "#ff00ff"
+        },
+        {
+          "hex": "#00ff88",
+          "label": "#00ff88"
+        },
+        {
+          "hex": "#ff00ff33",
+          "label": "#ff00ff33"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        }
+      ]
+    },
+    {
+      "id": "s-chromatic",
+      "name": "色差RGB分裂",
+      "en": "CHROMATIC ABERRATION / RGB SPLIT",
+      "note": "三色分离 · 故障美学 · 色散效果",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#ff0000",
+          "label": "#ff0000"
+        },
+        {
+          "hex": "#00ff00",
+          "label": "#00ff00"
+        },
+        {
+          "hex": "#0000ff",
+          "label": "#0000ff"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        }
+      ]
+    },
+    {
+      "id": "s-parallax",
+      "name": "视差叙事",
+      "en": "PARALLAX STORYTELLING",
+      "note": "多层滚动 · 暖色渐变 · 故事感",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f5f0e8",
+          "label": "#f5f0e8"
+        },
+        {
+          "hex": "#e8e0d0",
+          "label": "#e8e0d0"
+        },
+        {
+          "hex": "#1a1008",
+          "label": "#1a1008"
+        },
+        {
+          "hex": "#8b6f47",
+          "label": "#8b6f47"
+        },
+        {
+          "hex": "#3a3028",
+          "label": "#3a3028"
+        }
+      ]
+    },
+    {
+      "id": "s-voxel",
+      "name": "体素美学",
+      "en": "VOXEL AESTHETIC",
+      "note": "像素化 · 立体方块 · 物品栏网格 · 大地色色谱",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#7B8F3A",
+          "label": "#7B8F3A"
+        },
+        {
+          "hex": "#8B6B3D",
+          "label": "#8B6B3D"
+        },
+        {
+          "hex": "#6D6D6D",
+          "label": "#6D6D6D"
+        },
+        {
+          "hex": "#C4A87C",
+          "label": "#C4A87C"
+        },
+        {
+          "hex": "#87CEEB",
+          "label": "#87CEEB"
+        }
+      ]
+    },
+    {
+      "id": "s-micro",
+      "name": "微交互",
+      "en": "MICRO-INTERACTIONS",
+      "note": "精细反馈 · 弹性过渡 · 每个像素有回应",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fafafa",
+          "label": "#fafafa"
+        },
+        {
+          "hex": "#5b6abf",
+          "label": "#5b6abf"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#444444",
+          "label": "#444444"
+        },
+        {
+          "hex": "#eeeeee",
+          "label": "#eeeeee"
+        }
+      ]
+    },
+    {
+      "id": "s-dimensional",
+      "name": "维度层叠",
+      "en": "DIMENSIONAL LAYERING",
+      "note": "递进阴影 · 多层深度 · 仪表盘最佳",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f0f0f5",
+          "label": "#f0f0f5"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#4a4a6a",
+          "label": "#4a4a6a"
+        },
+        {
+          "hex": "#3a3a4a",
+          "label": "#3a3a4a"
+        },
+        {
+          "hex": "#eeeeee",
+          "label": "#eeeeee"
+        }
+      ]
+    },
+    {
+      "id": "s-accessible",
+      "name": "无障碍伦理",
+      "en": "ACCESSIBLE & ETHICAL",
+      "note": "WCAG标准 · 高可读性 · 包容设计",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#0055cc",
+          "label": "#0055cc"
+        },
+        {
+          "hex": "#1a1a1a",
+          "label": "#1a1a1a"
+        },
+        {
+          "hex": "#f5f5f5",
+          "label": "#f5f5f5"
+        }
+      ]
+    },
+    {
+      "id": "s-vibrant",
+      "name": "鲜艳块状",
+      "en": "VIBRANT & BLOCK-BASED",
+      "note": "高饱和撞色 · 粗黑边框 · 块状布局",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#ff6b6b",
+          "label": "#ff6b6b"
+        },
+        {
+          "hex": "#ffd93d",
+          "label": "#ffd93d"
+        },
+        {
+          "hex": "#111111",
+          "label": "#111111"
+        },
+        {
+          "hex": "#fafafa",
+          "label": "#fafafa"
+        }
+      ]
+    },
+    {
+      "id": "s-neubrutal",
+      "name": "新粗野2.0",
+      "en": "NEUBRUTALISM",
+      "note": "亮色乐观 · 硬阴影 · Gen Z友好",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fffaee",
+          "label": "#fffaee"
+        },
+        {
+          "hex": "#ff6b6b",
+          "label": "#ff6b6b"
+        },
+        {
+          "hex": "#ffd93d",
+          "label": "#ffd93d"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        }
+      ]
+    },
+    {
+      "id": "s-brutalism",
+      "name": "新粗野主义",
+      "en": "NEO-BRUTALISM",
+      "note": "粗边框 · 点阵背景 · 无圆角 · 大写等宽 · 实验编号",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f5f3ee",
+          "label": "#f5f3ee"
+        },
+        {
+          "hex": "#111111",
+          "label": "#111111"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#d4d0c8",
+          "label": "#d4d0c8"
+        },
+        {
+          "hex": "#888888",
+          "label": "#888888"
+        }
+      ]
+    },
+    {
+      "id": "s-neumorphism",
+      "name": "新拟物化",
+      "en": "NEUMORPHISM",
+      "note": "对向阴影 · 同色背景 · 20px圆角 · inset凹陷态",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#e0e5ec",
+          "label": "#e0e5ec"
+        },
+        {
+          "hex": "#c2c8d2",
+          "label": "#c2c8d2"
+        },
+        {
+          "hex": "#fefeff",
+          "label": "#fefeff"
+        },
+        {
+          "hex": "#3a4a5a",
+          "label": "#3a4a5a"
+        },
+        {
+          "hex": "#5a6575",
+          "label": "#5a6575"
+        }
+      ]
+    },
+    {
+      "id": "s-liquid",
+      "name": "液态玻璃",
+      "en": "LIQUID GLASS",
+      "note": "深度模糊 · 半透明层次 · 高级质感",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0a0e1a",
+          "label": "#0a0e1a"
+        },
+        {
+          "hex": "#12183a",
+          "label": "#12183a"
+        },
+        {
+          "hex": "#e0e8f8",
+          "label": "#e0e8f8"
+        },
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#a0b8d8",
+          "label": "#a0b8d8"
+        }
+      ]
+    },
+    {
+      "id": "s-biophilic",
+      "name": "有机自然设计",
+      "en": "BIOPHILIC DESIGN",
+      "note": "大地色系 · 光斑肌理 · 16px圆角 · 自然暖光",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f3f0e8",
+          "label": "#f3f0e8"
+        },
+        {
+          "hex": "#fdfbf5",
+          "label": "#fdfbf5"
+        },
+        {
+          "hex": "#4a4538",
+          "label": "#4a4538"
+        },
+        {
+          "hex": "#6b8a5e",
+          "label": "#6b8a5e"
+        },
+        {
+          "hex": "#8ba682",
+          "label": "#8ba682"
+        }
+      ]
+    },
+    {
+      "id": "s-voice",
+      "name": "语音优先",
+      "en": "VOICE-FIRST MULTIMODAL",
+      "note": "声波纹 · 大圆角 · 深色安静",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0a0a1a",
+          "label": "#0a0a1a"
+        },
+        {
+          "hex": "#ccd0ee",
+          "label": "#ccd0ee"
+        },
+        {
+          "hex": "#aabbee",
+          "label": "#aabbee"
+        },
+        {
+          "hex": "#141428",
+          "label": "#141428"
+        },
+        {
+          "hex": "#8890aa",
+          "label": "#8890aa"
+        }
+      ]
+    },
+    {
+      "id": "s-clay",
+      "name": "粘土风",
+      "en": "CLAYMORPHISM",
+      "note": "柔软3D · 暖泥土色 · 大圆角",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f0c9a0",
+          "label": "#f0c9a0"
+        },
+        {
+          "hex": "#e0b080",
+          "label": "#e0b080"
+        },
+        {
+          "hex": "#7a5e3a",
+          "label": "#7a5e3a"
+        },
+        {
+          "hex": "#c89868",
+          "label": "#c89868"
+        },
+        {
+          "hex": "#5a3e2a",
+          "label": "#5a3e2a"
+        }
+      ]
+    },
+    {
+      "id": "s-vaporwave",
+      "name": "蒸汽波",
+      "en": "VAPORWAVE",
+      "note": "粉紫青渐变 · 合成波 · 网格太阳",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0a0a2e",
+          "label": "#0a0a2e"
+        },
+        {
+          "hex": "#ff00ff",
+          "label": "#ff00ff"
+        },
+        {
+          "hex": "#00ffff",
+          "label": "#00ffff"
+        },
+        {
+          "hex": "#1a0a3e",
+          "label": "#1a0a3e"
+        },
+        {
+          "hex": "#e8a0ff",
+          "label": "#e8a0ff"
+        }
+      ]
+    },
+    {
+      "id": "s-terminal",
+      "name": "终端 / CLI 审美",
+      "en": "TERMINAL / CLI AESTHETIC",
+      "note": "绿色脉冲 · 等宽全文本 · 冷工业配色 · 命令行审美",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#0d0f0e",
+          "label": "#0d0f0e"
+        },
+        {
+          "hex": "#c5d0c0",
+          "label": "#c5d0c0"
+        },
+        {
+          "hex": "#dfff00",
+          "label": "#dfff00"
+        },
+        {
+          "hex": "#2454ff",
+          "label": "#2454ff"
+        },
+        {
+          "hex": "#4ec97a",
+          "label": "#4ec97a"
+        }
+      ]
+    },
+    {
+      "id": "s-nature-d",
+      "name": "自然精粹",
+      "en": "NATURE DISTILLED",
+      "note": "奶油底色 · 森林绿 · 提炼自然",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#f5f2eb",
+          "label": "#f5f2eb"
+        },
+        {
+          "hex": "#5a6a4a",
+          "label": "#5a6a4a"
+        },
+        {
+          "hex": "#2a2418",
+          "label": "#2a2418"
+        },
+        {
+          "hex": "#6a7a5a",
+          "label": "#6a7a5a"
+        },
+        {
+          "hex": "#fcfaf5",
+          "label": "#fcfaf5"
+        }
+      ]
+    },
+    {
+      "id": "s-ai-native",
+      "name": "AI原生界面",
+      "en": "AI-NATIVE UI",
+      "note": "蓝紫渐变 · 对话气泡 · 智能质感",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#fafbff",
+          "label": "#fafbff"
+        },
+        {
+          "hex": "#667eea",
+          "label": "#667eea"
+        },
+        {
+          "hex": "#764ba2",
+          "label": "#764ba2"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#4a5568",
+          "label": "#4a5568"
+        }
+      ]
+    },
+    {
+      "id": "s-dark-oled",
+      "name": "OLED 暗黑",
+      "en": "DARK MODE OLED",
+      "note": "纯黑底色 · 极致对比 · 省电暗色",
+      "dark": true,
+      "swatches": [
+        {
+          "hex": "#000000",
+          "label": "#000000"
+        },
+        {
+          "hex": "#0a0a0a",
+          "label": "#0a0a0a"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        },
+        {
+          "hex": "#aaaaaa",
+          "label": "#aaaaaa"
+        },
+        {
+          "hex": "#222222",
+          "label": "#222222"
+        }
+      ]
+    },
+    {
+      "id": "s-y2k",
+      "name": "Y2K 美学",
+      "en": "Y2K AESTHETIC",
+      "note": "金属镀铬 · 冰蓝渐变 · 千禧乐观",
+      "dark": false,
+      "swatches": [
+        {
+          "hex": "#d1f7ff",
+          "label": "#d1f7ff"
+        },
+        {
+          "hex": "#ffccde",
+          "label": "#ffccde"
+        },
+        {
+          "hex": "#ff69b4",
+          "label": "#ff69b4"
+        },
+        {
+          "hex": "#2a2a5a",
+          "label": "#2a2a5a"
+        },
+        {
+          "hex": "#ffffff",
+          "label": "#ffffff"
+        }
+      ]
+    }
+  ]
+}
